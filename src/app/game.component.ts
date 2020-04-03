@@ -15,8 +15,5 @@ hallo
     ngOnInit()
     {
         this.route.paramMap.subscribe(  params => { this.gameId = params.get('gameId'); } );
-        
-        
-     }
-    
+    }
 }
