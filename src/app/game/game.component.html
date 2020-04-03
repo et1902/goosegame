@@ -1,17 +1,15 @@
 <div>
   <!-- sidebar -->
-  <div class="border rounded-lg border-secondary m-2" style="width: 15vw;">
-    <table class="table table-borderless">
+  <div class="border rounded-lg border-secondary m-2" style="width: 10vw;">
+    <table class="table table-borderless table-sm">
       <thead>
         <tr>
-          <th scope="col">Player</th>
-          <th scope="col">Points</th>
+          <th scope="col">Players</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let player of players">
           <td>{{player.name}}</td>
-          <td>{{player.points}}</td>
         </tr>
       </tbody>
     </table>      

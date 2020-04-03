@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
+  { path: 'game/:gameId', component: GameComponent},
   { path: 'game', component: GameComponent},
   { path: '', component: MainComponent },
   { path: '**', component: PageNotFoundComponent }
