@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'goosegame';
-
-  onClickNewGame()
-  {
-    console.log("New game")
-  }
-
-  onClickJoinGame()
-  {
-    console.log("Join game")
-  }
-
 }

@@ -1,10 +1,10 @@
-<div class="container text-center" style="margin-top: 30vh;">
-  <div>
-    <button type="button" class="btn btn-dark m-2" (click)="onClickNewGame()">New Game</button>
+  <!-- navbar -->
+  <div class=".navbar navbar-dark bg-dark">
+    <div class="navbar-brand">
+      <div class="container-sm">Goosegame</div>
+    </div> 
   </div>
-  or
-  <div>
-    <input type="gameId" class="form-control w-25 text-center container " id="joinGameIdSearch" placeholder="Game ID">
-    <button type="button" class="btn btn-dark m-2" (click)="onClickJoinGame()" >Join Game</button>
-  </div>
-</div>
+
+<!-- content -->
+<router-outlet></router-outlet>
+
