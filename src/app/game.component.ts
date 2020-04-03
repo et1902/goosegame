@@ -15,6 +15,5 @@ export class GameComponent {
     ngOnInit()
     {
         this.route.paramMap.subscribe(  params => { this.gameId = params.get('gameId'); } );
-     }
-    
+    }
 }
