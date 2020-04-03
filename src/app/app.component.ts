@@ -10,7 +10,7 @@ export class AppComponent {
 
   onClickNewGame()
   {
-    console.log("Start new game")
+    console.log("New game")
   }
 
   onClickJoinGame()

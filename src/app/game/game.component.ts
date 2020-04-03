@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import {GameService} from '../game.service';
+
 @Component({
     selector: 'app-game',
     templateUrl: './game.component.html',
@@ -8,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameComponent {
     gameId;
+    GameService;
 
     constructor( private route: ActivatedRoute )
     { }
@@ -15,5 +18,7 @@ export class GameComponent {
     ngOnInit()
     {
         this.route.paramMap.subscribe(  params => { this.gameId = params.get('gameId'); } );
+        console.log( this.gameId );
+        this.GameService = new GameService();
     }
 }
