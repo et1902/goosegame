@@ -11,6 +11,9 @@ import {GameService} from '../game.service';
 export class GameComponent {
     gameId;
     GameService;
+    players = [ {id: 1, name: 'Elias', points: 10},
+                {id: 2, name: 'Josh', points: 20} 
+            ];
 
     constructor( private route: ActivatedRoute )
     { }
