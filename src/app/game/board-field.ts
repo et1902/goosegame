@@ -1,5 +1,5 @@
 export class BoardField {
-    private position: number;
+    private position: number = -1;
     
     constructor(position: number) {
         this.position = position
