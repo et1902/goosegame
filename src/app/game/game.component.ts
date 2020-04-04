@@ -16,7 +16,7 @@ export class GameComponent {
     activePlayer = '1';
     playerbuilder: PlayerBuilder = new PlayerBuilder();
     testguy1: Player = this.playerbuilder.newPlayer("Elias"); 
-    testguy2: Player = this.playerbuilder.newPlayer("Torben"); 
+    testguy2: Player = this.playerbuilder.newPlayer("t#@123#'wás!\"?"); 
     testguy3: Player = this.playerbuilder.newPlayer("Josh"); 
     players = [ {id: this.testguy1.getPlayerId(), name: this.testguy1.getPlayerName(), },
                 {id: this.testguy2.getPlayerId(), name: this.testguy2.getPlayerName(), },
