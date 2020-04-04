@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import {GameService} from '../game.service';
+import {Player} from './player'
 
 @Component({
     selector: 'app-game',
@@ -12,7 +13,9 @@ export class GameComponent {
     gameId;
     GameService;
     activePlayer = '1';
+    testguy: Player = new Player(); 
     players = [ {id: 1, name: 'Elias', },
+                {id: this.testguy.getPlayerId(), name: this.testguy.getPlayerName(), },
                 {id: 2, name: 'Josh', } 
             ];
 
