@@ -9,6 +9,8 @@ export class Board {
 
     private generateNewBoard(numberOfFields: number) {
         this.fields = new Array(numberOfFields);
+
+        this.fields.forEach
         return this
     }
 
@@ -22,7 +24,11 @@ export class Board {
         if(index > this.fields.length) {
             throw new Error ("Index " + index + " outside of array with length " + this.fields.length)
         }
-        return this.fields.
+        return this.fields[index]
+    }
+
+    public getBoardSize() {
+        return this.fields.length
     }
 
 }
