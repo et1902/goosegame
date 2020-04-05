@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainComponent } from './main/main.component';
+import { WebSocketService } from './websocket.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
