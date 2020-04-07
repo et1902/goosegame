@@ -9,8 +9,8 @@
       	<button class="btn btn-dark m-2" id="" (click)="onClickNewGame()">New Game</button>
 	</form>
     <div class="d-inline m-4 text-dark">or</div>
-    <form class="d-inline form-inline">
-      	<input class="container form-control text-center bg-light" id="GameId" placeholder="Game ID">
+    <div class="d-inline form-inline">
+      	<input class="container form-control text-center bg-light" id="gameId" placeholder="Game ID" [(ngModel)]="gameId">
       	<button class="btn btn-dark m-2" (click)="onClickJoinGame()" >Join Game</button>
-	</form>
+	</div>
 </div>
