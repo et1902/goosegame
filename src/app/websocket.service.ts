@@ -3,29 +3,28 @@ import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
 export class WebSocketService {
-  socket;
+	socket;
 
-  constructor() {
-  this.socket = io('http://localhost:3000');
-  
-  this.socket.on('joinGame', () => {
-    // ...
-    console.log("Joined  Game");
-  });
+	constructor() {	
+		this.socket = io('http://localhost:3000');
 
-  this.socket.on('player', (data) => {
-    // ...
-    console.log(data);
-  });
+		this.socket.on('GameCreated', (data) => {
+			console.log('Server: GameCreated');
+			console.log(data);
+		  });
 
-  this.socket.on('game', (data) => {
-    // ...
-    console.log(data);
-  });
+		this.socket.on('Info', (data) => {
+			console.log('Server: Info');
+			console.log(data);
+		  });
 
-  }
+		this.socket.on("*",function(event,data) {
+			console.log(event);
+			console.log(data);
+		});
+	}
 }

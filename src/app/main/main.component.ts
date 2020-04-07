@@ -24,17 +24,12 @@ export class MainComponent implements OnInit {
 
   onClickNewGame()
   {
-    console.log("New game")
-    console.log( this.username )
-    this.WebSocket.socket.emit('createGame');
+    this.WebSocket.socket.emit('CreateGame');
   }
 
   onClickJoinGame()
   {
-    console.log("Join game")
-    console.log( this.username )
-    console.log( this.gameId )
-    this.WebSocket.socket.emit('joinGame', this.username, this.gameId );
+    this.WebSocket.socket.emit('JoinGame', this.username, this.gameId );
   }
 
 }
