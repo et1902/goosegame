@@ -22,5 +22,10 @@ export class WebSocketService {
     console.log(data);
   });
 
+  this.socket.on('game', (data) => {
+    // ...
+    console.log(data);
+  });
+
   }
 }
