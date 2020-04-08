@@ -13,6 +13,7 @@ export class WebSocketService {
 		this.socket = io('http://localhost:3000');
 
 		this.socket.on('GameCreated', (data) => {
+			//TODO get gameId and show in titlebar
 			console.log('Server: GameCreated');
 			console.log(data);
 		  });
@@ -23,11 +24,13 @@ export class WebSocketService {
 		  });
 
 		this.socket.on('MissingNameField', (data) => {
+			//TODO show error to user
 			console.log('Server: MissingNameField');
 			console.log(data);
 		  });
 
 		this.socket.on('MissingIdField', (data) => {
+			//TODO show error to user
 			console.log('Server: MissingIdField');
 			console.log(data);
 		});
