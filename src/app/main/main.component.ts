@@ -24,7 +24,7 @@ export class MainComponent implements OnInit {
 
   onClickNewGame()
   {
-    this.WebSocket.socket.emit('CreateGame');
+    this.WebSocket.socket.emit('CreateGame', this.username);
   }
 
   onClickJoinGame()

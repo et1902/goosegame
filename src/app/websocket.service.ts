@@ -22,6 +22,16 @@ export class WebSocketService {
 			console.log(data);
 		  });
 
+		this.socket.on('MissingNameField', (data) => {
+			console.log('Server: MissingNameField');
+			console.log(data);
+		  });
+
+		this.socket.on('MissingIdField', (data) => {
+			console.log('Server: MissingIdField');
+			console.log(data);
+		});
+
 		this.socket.on("*",function(event,data) {
 			console.log(event);
 			console.log(data);
