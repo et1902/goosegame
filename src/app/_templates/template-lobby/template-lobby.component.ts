@@ -18,21 +18,23 @@ export class TemplateLobbyComponent
     }
     public setgameID( ID )
     {
-        console.log(ID);
         this.gameID = ID;
     }
 
     public createGame()
     {
-        this.socket.emit('CreateGame', null, (data) => { this.setgameID(data) } );
+        this.socket.emit('CreateGame', null, (data) => { console.log('Recieved GameID: ' + data); this.setgameID(data) } );
     }
 
     public joinGame()
-    {
+    {   
+        console.log('Try to join game: ' + this.gameID);
         if( this.gameID != null )
         {
             this.router.navigateByUrl('/game/' + this.gameID)
+            return;
         }
+        console.log('No gameID set!');
     }
 
     
