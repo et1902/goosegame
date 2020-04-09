@@ -1,6 +1,8 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
+import { WebSocketService } from '../../websocket.service'
+
 @Component({
   selector: 'app-template-lobby',
   templateUrl: './template-lobby.component.html',
@@ -8,22 +10,29 @@ import { Router } from '@angular/router';
 })
 export class TemplateLobbyComponent
 {
-    private gameID;
+    public gameID;
 
-    constructor(private router: Router)
+    constructor(private router: Router, private socket: WebSocketService)
     {
-
+        this.socket = new WebSocketService();
+    }
+    public setgameID( ID )
+    {
+        console.log(ID);
+        this.gameID = ID;
     }
 
-    private createGame()
+    public createGame()
     {
-        //TODO: send Event to Websocket with create Game. Should return GameID
-        //this.gameID = returnval;
+        this.socket.emit('CreateGame', null, (data) => { this.setgameID(data) } );
     }
 
-    private joinGame()
+    public joinGame()
     {
-        this.router.navigateByUrl('/game/' + this.gameID)
+        if( this.gameID != null )
+        {
+            this.router.navigateByUrl('/game/' + this.gameID)
+        }
     }
 
     

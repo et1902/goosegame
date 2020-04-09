@@ -24,6 +24,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes, { enableTracing: false }),
   ],
   providers: [WebSocketService],
