@@ -4,19 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
+import { TemplateHeaderComponent } from './_templates/template-header/template-header.component';
+import { TemplateLobbyComponent } from './_templates/template-lobby/template-lobby.component';
 import { GameComponent } from './game/game.component';
+
 import { WebSocketService } from './websocket.service';
 
 const routes: Routes = [
   { path: 'game/:gameId', component: GameComponent},
-  { path: '**', component: MainComponent },
+  { path: '**', component: TemplateLobbyComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    TemplateHeaderComponent,
+    TemplateLobbyComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
