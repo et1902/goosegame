@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
+
+import { WebSocketService } from '../websocket.service'
 
 
 @Component({
@@ -7,22 +9,27 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router'
     templateUrl: './game.component.html',
     styles: []
 })
-export class GameComponent {
-    players = [ {name: 'Elias'},
-                {name: 'Josh'},
-                {name: 'Clemens'}
-            ];
+export class GameComponent implements OnInit{
+    public gameID;
+    public game;
 
-    constructor( private route: ActivatedRoute )
+    constructor(private router: Router, private route: ActivatedRoute, private socket: WebSocketService)
     {
-        //this.gameservice = new gameservice();
-        
-        //this.players = this.gameservice.getplayers();
+        console.log('Joining game...' );
+        this.socket = new WebSocketService();
 
+        this.socket.emit('JoinGame', this.gameID, (data) => { console.log(data); this.game = data } );
 
-        //TODO: If gameId is empty return to main page
-        //console.log( this.route.params. );
-        console.log( this.players );
+        if( this.game == null)
+        {
+            console.log("Joining game failed!");
+            this.router.navigateByUrl('/')
+        }
+    }
+
+    ngOnInit()
+    {
+
     }
 
 }
