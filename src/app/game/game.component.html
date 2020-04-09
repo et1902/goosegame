@@ -1,19 +1,14 @@
 <div>
   <!-- sidebar -->
-  <div class="table-responsive border rounded-lg border-secondary m-2" style="width: 20vw;">
-    <table class="table table-borderless table-sm">
-      <thead>
-        <tr>
-          <th scope="col">Players</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let player of players">
-          <td>{{player.name}}</td>
-          <td>{{player.id}}</td>
-        </tr>
-      </tbody>
-    </table>      
+  <div class="m-2" style="width: 15vw;">
+    <div class="border rounded-lg border-secondary">
+      <div class="font-weight-bold m-2">Players</div>
+      <div *ngFor="let player of players">
+          {{player.playername}}
+      </div>
+    </div>
+    <button class="btn btn-success mt-2 w-100">Start</button>
+    <button class="btn btn-success mt-2 w-100">Würfeln</button>    
   </div>
 
   <!-- game board -->
