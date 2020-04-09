@@ -8,40 +8,26 @@ import * as io from 'socket.io-client';
 
 export class WebSocketService {
 	socket;
+	id;
 
-	constructor() {	
+	constructor()
+	{	
 		this.socket = io('http://localhost:3000');
+		this.id = this.socket.id;
+	}
 
-		this.socket.on('GameCreated', (data) => {
-			//TODO get gameId and show in titlebar
-			console.log('Server: GameCreated');
-			console.log(data);
-		  });
+	emit( event, data, callback)
+	{
+		this.socket.emit( event, data, callback);
+	}
 
-		  this.socket.on('Info', (data) => {
-			console.log('Server: Info');
-			console.log(data);
-		  });
+	on( event, callback)
+	{
+		this.socket.on( event, callback);
+	}
 
-		  this.socket.on('Log', (data) => {
-			console.log('Server: Log' + data);
-		  });
-
-		this.socket.on('MissingNameField', (data) => {
-			//TODO show error to user
-			console.log('Server: MissingNameField');
-			console.log(data);
-		  });
-
-		this.socket.on('MissingIdField', (data) => {
-			//TODO show error to user
-			console.log('Server: MissingIdField');
-			console.log(data);
-		});
-
-		this.socket.on("*",function(event,data) {
-			console.log(event);
-			console.log(data);
-		});
+	off( event, callback )
+	{
+		this.socket.removeListener( event, callback);
 	}
 }

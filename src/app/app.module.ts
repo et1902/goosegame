@@ -1,26 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { TemplateHeaderComponent } from './_templates/template-header/template-header.component';
+import { TemplateLobbyComponent } from './_templates/template-lobby/template-lobby.component';
 import { GameComponent } from './game/game.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MainComponent } from './main/main.component';
+
 import { WebSocketService } from './websocket.service';
+
+const routes: Routes = [
+  { path: 'game/:gameId', component: GameComponent},
+  { path: '**', component: TemplateLobbyComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent,
-    PageNotFoundComponent,
-    MainComponent
+    TemplateHeaderComponent,
+    TemplateLobbyComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes, { enableTracing: false }),
   ],
   providers: [WebSocketService],
   bootstrap: [AppComponent]
