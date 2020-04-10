@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { TemplateHeaderComponent } from './_templates/template-header/template-header.component';
 import { TemplateLobbyComponent } from './_templates/template-lobby/template-lobby.component';
 import { GameComponent } from './game/game.component';
+import { GameboardComponent } from './game/gameboard/gameboard.component';
+import { GamefieldComponent } from './game/gameboard/gamefield/gamefield.component';
 
 import { WebSocketService } from './websocket.service';
 
@@ -20,7 +22,9 @@ const routes: Routes = [
     AppComponent,
     TemplateHeaderComponent,
     TemplateLobbyComponent,
-    GameComponent
+    GameComponent,
+    GameboardComponent,
+    GamefieldComponent
   ],
   imports: [
     BrowserModule,

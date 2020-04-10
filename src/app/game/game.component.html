@@ -3,16 +3,17 @@
   <div class="position-absolute m-2"style="width: 10vw;">
     <div class="border rounded-lg border-secondary">
       <div class="font-weight-bold m-2">Players</div>
-      <div *ngFor="let player of game.players" class="m-2">
+      <div *ngFor="let player of players" class="m-2">
           {{player.name}}
       </div>
     </div>
-    <button class="btn btn-success mt-2 w-100">Start</button>
-    <button class="btn btn-success mt-2 w-100">Throw the dice</button>    
+    <button *ngIf="!started" (click)="startGame()" class="btn btn-success mt-2 w-100">Start</button>
+    <button *ngIf="started" (click)="throwDice()" class="btn btn-success mt-2 w-100">Throw the dice</button>    
   </div>
 
   <!-- game board -->
   <div class="bg-light" style="width: 100vw; height: 95vh;">
     <div></div>
+    <app-game-gameboard></app-game-gameboard>
   </div>
 </div>
