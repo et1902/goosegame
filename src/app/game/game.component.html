@@ -4,7 +4,7 @@
     <div class="border rounded-lg border-secondary">
       <div class="font-weight-bold m-2">Players</div>
       <div *ngFor="let player of players" class="m-2">
-          {{player.name}}
+          {{player.playerName}}
       </div>
     </div>
     <button *ngIf="!started" (click)="startGame()" class="btn btn-success mt-2 w-100">Start</button>
