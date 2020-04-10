@@ -11,6 +11,7 @@ import { GameboardComponent } from './game/gameboard/gameboard.component';
 import { GamefieldComponent } from './game/gameboard/gamefield/gamefield.component';
 
 import { WebSocketService } from './websocket.service';
+import { WebStorageService } from './webstorage.service';
 
 const routes: Routes = [
   { path: 'game/:gameId', component: GameComponent},
@@ -31,7 +32,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes, { enableTracing: false }),
   ],
-  providers: [WebSocketService],
+  providers: [WebSocketService, WebStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
