@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GamefieldComponent implements OnInit
 {
     @Input() data;
-    public id;
+    public position;
     public description;
     public action;
 
@@ -21,7 +21,7 @@ export class GamefieldComponent implements OnInit
     {
       console.log('New Field:');
       console.log( this.data );
-      this.id = this.data.id;
+      this.position = this.data.number;
       this.description = this.data.description;
       this.action = this.data.action;
     }
