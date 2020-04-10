@@ -34,7 +34,7 @@ export class TemplateLobbyComponent
             this.router.navigateByUrl('/game/' + this.gameID)
             return;
         }
-        console.log('No gameID set!');
+        console.error('No gameID set!');
     }
 
     
