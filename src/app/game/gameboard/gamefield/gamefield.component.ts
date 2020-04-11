@@ -19,8 +19,8 @@ export class GamefieldComponent implements OnInit
 
     ngOnInit()
     {
-      console.log('New Field:');
-      console.log( this.data );
+      //console.log('New Field:');
+      //console.log( this.data );
       this.position = this.data.number;
       this.description = this.data.description;
       this.action = this.data.action;

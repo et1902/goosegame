@@ -1,6 +1,6 @@
 <!-- user name -->
 <div class="container text-center w-25" style="margin-top: 15vh; min-width: 200px;">
-	<input class="container form-control text-center bg-light" id="username" placeholder="Name">
+	<input class="container form-control text-center bg-light" id="playername" placeholder="Name" [(ngModel)]="playername" (keyup)="setPlayername(playername)" >
 </div>
 
 <!-- game options -->

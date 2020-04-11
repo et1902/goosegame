@@ -2,8 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 
 import { WebSocketService } from '../websocket.service'
-
-import { GameboardComponent } from './gameboard/gameboard.component';
+import { WebStorageService } from '../webstorage.service'
 
 
 @Component({
@@ -12,18 +11,18 @@ import { GameboardComponent } from './gameboard/gameboard.component';
     styles: []
 })
 export class GameComponent implements OnInit, OnDestroy{
-    public gameID = '7rzwgZrZL';
+    public gameID = 'WFY1efIZ_';
     public game;
     public started = false;
     public players;
 
-    constructor(private router: Router, private route: ActivatedRoute, private socket: WebSocketService)
+    constructor(private router: Router, private route: ActivatedRoute, private socket: WebSocketService, private storage: WebStorageService)
     {
-        console.log('Joining game...' );
-        this.socket = new WebSocketService();
+        console.log('Connection to game...' );
+       
+        this.socket.emit('RegisterSocketEndpoint', {socketID: this.socket.id, playerID: this.storage.read('goosegame-playerID') }, null)
 
-        this.socket.emit('JoinGame', {gameID: this.gameID, playername: 'Elias'} , (data) => { console.log(data); this.game = data } );
-        this.socket.on('GameUpdate', (data) => {this.onUpdate(data)} );
+        //this.socket.on('GameUpdate', (data) => { this.onUpdate(data) });
     }
 
     ngOnInit()
@@ -38,7 +37,9 @@ export class GameComponent implements OnInit, OnDestroy{
 
     private onUpdate(data)
     {
+        this.game = data;
         this.players = data.players;
+        console.log( this.players );
     }
 
     public startGame()
