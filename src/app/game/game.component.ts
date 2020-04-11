@@ -13,16 +13,21 @@ import { WebStorageService } from '../webstorage.service'
 export class GameComponent implements OnInit, OnDestroy{
     public gameID;
     public game;
-    public started = false;
-    public players;
+    public started;
 
     constructor(private router: Router, private route: ActivatedRoute, private socket: WebSocketService, private storage: WebStorageService)
     {
         this.gameID = this.route.snapshot.paramMap.get("gameID")
-        console.log('Connection to game ' + this.gameID );
-        this.socket.emit('RegisterSocketEndpoint', {socketID: this.socket.id, playerID: this.storage.read('goosegame-playerID') }, null)
+        
+        this.socket.emit('RegisterSocketEndpoint', {gameID: this.gameID, playerID: this.storage.read('goosegame-playerID') }, (data) => 
+        { 
+            console.log('Player still in running game. Loading this game instead!')
+            this.router.navigateByUrl('/game/' + data);
+        });
 
-        //this.socket.on('GameUpdate', (data) => { this.onUpdate(data) });
+        console.log('Connecting to game ' + this.gameID );
+
+        this.socket.on('GameUpdate', (data) => { console.log('Recieved game update'); this.onUpdate(data) });
     }
 
     ngOnInit()
@@ -37,16 +42,23 @@ export class GameComponent implements OnInit, OnDestroy{
 
     private onUpdate(data)
     {
-        this.game = data;
-        this.players = data.players;
-        console.log( this.players );
+        console.log( data );
+        this.game = data
     }
 
     public startGame()
     {
         console.log('Starting game...');
-        this.socket.emit('StartGame', this.gameID, () => { this.started=true } );
+        this.socket.emit('StartGame', this.gameID, () => { console.log('Game started'); this.started=true } );
     }
+
+    public leaveGame()
+    {
+        console.log('Leaving game...');
+        this.socket.emit('LeaveGame', this.storage.read('goosegame-playerID'), () => { this.router.navigateByUrl('/') } );
+    }
+
+
 
     public throwDice()
     {

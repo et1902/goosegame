@@ -7,10 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GamefieldComponent implements OnInit
 {
-    @Input() data;
-    public position;
-    public description;
-    public action;
+    @Input() field;
 
     constructor()
     {
@@ -19,10 +16,5 @@ export class GamefieldComponent implements OnInit
 
     ngOnInit()
     {
-      //console.log('New Field:');
-      //console.log( this.data );
-      this.position = this.data.number;
-      this.description = this.data.description;
-      this.action = this.data.action;
     }
 }
