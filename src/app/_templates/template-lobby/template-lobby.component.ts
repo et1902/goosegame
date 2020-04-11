@@ -66,11 +66,13 @@ export class TemplateLobbyComponent
                 console.log( game )
                 if( game != undefined)
                 {
-                this.router.navigateByUrl('/game/' + game.gameID);
-                return; 
+                    this.router.navigateByUrl('/game/' + game.gameID);
+                    return; 
                 }
-                console.error('Joining game faild!')
+                console.error('Joining game failed!')
+                
             });
+            return;
         }
         console.error('No gameID set!');
     }

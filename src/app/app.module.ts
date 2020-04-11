@@ -14,7 +14,7 @@ import { WebSocketService } from './websocket.service';
 import { WebStorageService } from './webstorage.service';
 
 const routes: Routes = [
-  { path: 'game/:gameId', component: GameComponent},
+  { path: 'game/:gameID', component: GameComponent},
   { path: '**', component: TemplateLobbyComponent },
 ];
 

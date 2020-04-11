@@ -11,15 +11,15 @@ import { WebStorageService } from '../webstorage.service'
     styles: []
 })
 export class GameComponent implements OnInit, OnDestroy{
-    public gameID = 'WFY1efIZ_';
+    public gameID;
     public game;
     public started = false;
     public players;
 
     constructor(private router: Router, private route: ActivatedRoute, private socket: WebSocketService, private storage: WebStorageService)
     {
-        console.log('Connection to game...' );
-       
+        this.gameID = this.route.snapshot.paramMap.get("gameID")
+        console.log('Connection to game ' + this.gameID );
         this.socket.emit('RegisterSocketEndpoint', {socketID: this.socket.id, playerID: this.storage.read('goosegame-playerID') }, null)
 
         //this.socket.on('GameUpdate', (data) => { this.onUpdate(data) });
