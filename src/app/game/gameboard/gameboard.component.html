@@ -1,3 +1,5 @@
-<div style="margin-left: 12vw;">
-    <app-game-gameboard-gamefield *ngFor="let field of gameboard.fields" [field]="field"></app-game-gameboard-gamefield>
+<div class="mt-3" style="width: 80vh; height: 80vh; margin: auto">
+    <div class="d-flex align-content-stretch flex-wrap">
+        <app-game-gameboard-gamefield *ngFor="let field of gameboard.fields" [field]="field" class="border flex-grow-1 flex-fill" style="width: 13.3vh;height: 13.3vh;" id="field{{field.position}}"></app-game-gameboard-gamefield>
+    </div>
 </div>
